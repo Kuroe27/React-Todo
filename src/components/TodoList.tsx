@@ -47,56 +47,58 @@ const TodoList = () => {
     });
   };
   return (
-    <ul>
-      {todos.map((t) => (
-        <div key={t.id}>
-          <li className="flex w-full text-2xl text-center items-center ">
-            <p>{t.id}</p>
+    <div className="w-full ">
+      <ul>
+        {todos.map((t) => (
+          <div key={t.id}>
+            <li className="flex w-full text-2xl text-center items-center break-words">
+              <p>{t.id}</p>
 
-            {t.onEdit ? (
-              <>
-                <input
-                  type="text"
-                  className="text-center"
-                  value={t.text}
-                  onChange={(e) => handleChange(e, t.id)}
-                />
+              {t.onEdit ? (
+                <>
+                  <input
+                    type="text"
+                    className="text-center"
+                    value={t.text}
+                    onChange={(e) => handleChange(e, t.id)}
+                  />
 
-                <button
-                  className="ml-2 p-1 bg-red-100"
-                  onClick={() => handleDelete(t.id)}
-                >
-                  Del
-                </button>
-                <button onClick={() => handleCancel(t.id)}>Cancel</button>
-                <button
-                  className="bg-blue-500"
-                  onClick={() => handleSave(t.id, t.text)}
-                >
-                  Save
-                </button>
-              </>
-            ) : (
-              <div>
-                <span>{t.text}</span>
-                <button
-                  className="ml-2 p-1 bg-red-500"
-                  onClick={() => handleDelete(t.id)}
-                >
-                  Del
-                </button>
-                <button
-                  className="bg-blue-500"
-                  onClick={() => handleEdit(t.id)}
-                >
-                  Edit
-                </button>
-              </div>
-            )}
-          </li>
-        </div>
-      ))}
-    </ul>
+                  <button
+                    className="ml-2 p-1 bg-red-100"
+                    onClick={() => handleDelete(t.id)}
+                  >
+                    Del
+                  </button>
+                  <button onClick={() => handleCancel(t.id)}>Cancel</button>
+                  <button
+                    className="bg-blue-500"
+                    onClick={() => handleSave(t.id, t.text)}
+                  >
+                    Save
+                  </button>
+                </>
+              ) : (
+                <div>
+                  <p className="break-all">{t.text}</p>
+                  <button
+                    className="ml-2 p-1 bg-red-500"
+                    onClick={() => handleDelete(t.id)}
+                  >
+                    Del
+                  </button>
+                  <button
+                    className="bg-blue-500"
+                    onClick={() => handleEdit(t.id)}
+                  >
+                    Edit
+                  </button>
+                </div>
+              )}
+            </li>
+          </div>
+        ))}
+      </ul>
+    </div>
   );
 };
 
