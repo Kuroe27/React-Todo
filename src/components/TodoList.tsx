@@ -51,47 +51,53 @@ const TodoList = () => {
       <ul>
         {todos.map((t) => (
           <div key={t.id}>
-            <li className="flex w-full text-2xl text-center items-center break-words">
-              <p>{t.id}</p>
-
+            <li className=" w-full text-2xl text-center items-center break-words mt-2">
               {t.onEdit ? (
-                <>
+                <div className="flex justify-between">
                   <input
                     type="text"
-                    className="text-center"
                     value={t.text}
                     onChange={(e) => handleChange(e, t.id)}
+                    className="text-cente px-4 py-1 mr-2 border-2 border-black"
                   />
-
-                  <button
-                    className="ml-2 p-1 bg-red-100"
-                    onClick={() => handleDelete(t.id)}
-                  >
-                    Del
-                  </button>
-                  <button onClick={() => handleCancel(t.id)}>Cancel</button>
-                  <button
-                    className="bg-blue-500"
-                    onClick={() => handleSave(t.id, t.text)}
-                  >
-                    Save
-                  </button>
-                </>
+                  <div className="buttons">
+                    <button
+                      className="px-4 py-1 mr-2 border-2 border-black"
+                      onClick={() => handleDelete(t.id)}
+                    >
+                      Delete
+                    </button>
+                    <button
+                      className="px-4 py-1 mr-2 border-2 border-black"
+                      onClick={() => handleSave(t.id, t.text)}
+                    >
+                      Save
+                    </button>
+                    <button
+                      className="px-4 py-1 mr-2 border-2 border-black"
+                      onClick={() => handleCancel(t.id)}
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </div>
               ) : (
-                <div>
+                <div className="flex justify-between">
                   <p className="break-all">{t.text}</p>
-                  <button
-                    className="ml-2 p-1 bg-red-500"
-                    onClick={() => handleDelete(t.id)}
-                  >
-                    Del
-                  </button>
-                  <button
-                    className="bg-blue-500"
-                    onClick={() => handleEdit(t.id)}
-                  >
-                    Edit
-                  </button>
+                  <div className="buttons">
+                    <button
+                      className="px-4 py-1 mr-2 border-2 border-black "
+                      onClick={() => handleDelete(t.id)}
+                    >
+                      Delete
+                    </button>
+                    <button
+                      className="px-9 py-1 border-2 border-black"
+                      onClick={() => handleEdit(t.id)}
+                    >
+                      Edit
+                    </button>
+                  </div>
                 </div>
               )}
             </li>

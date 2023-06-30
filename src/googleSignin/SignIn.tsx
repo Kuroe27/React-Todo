@@ -1,7 +1,7 @@
 import { signInWithPopup } from "firebase/auth";
 import { useState } from "react";
 
-import App from "../App";
+import Home from "../pages/Home";
 import { auth, provider } from "./config";
 
 function SignIn() {
@@ -19,13 +19,18 @@ function SignIn() {
   };
 
   return (
-    <div>
+    <>
       {value ? (
-        <App />
+        <Home />
       ) : (
-        <button onClick={handleClick}>Signin With Google</button>
+        <button
+          className="border-2 border-zinc-400 p-2 text-black hover:bg-gray-800 hover:text-white"
+          onClick={handleClick}
+        >
+          Signin With Google
+        </button>
       )}
-    </div>
+    </>
   );
 }
 
