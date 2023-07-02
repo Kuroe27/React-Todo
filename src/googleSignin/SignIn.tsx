@@ -36,14 +36,8 @@ function SignIn() {
       {value ? (
         <Home />
       ) : (
-        <>
-          <button
-            className="border-2 border-zinc-400 p-2 text-black hover:bg-gray-800 hover:text-white"
-            onClick={handleClick}
-          >
-            Signin With Google
-          </button>
-          <div className="signup">
+        <div className="flex flex-col items-center justify-center text-center">
+          <div className="signup ">
             <h1>SignUp</h1>
             <input
               type="text"
@@ -57,7 +51,7 @@ function SignIn() {
             />
             <button onClick={handleregister}>Signup</button>
           </div>
-          <div className="signin">
+          <div className="signin mt-10">
             <h1>SignIn</h1>
             <input
               type="text"
@@ -71,7 +65,13 @@ function SignIn() {
             />
             <button onClick={handleLogin}>Login</button>
           </div>
-        </>
+          <button
+            className="border-2 border-zinc-400 p-2 text-black hover:bg-gray-800 hover:text-white mt-10"
+            onClick={handleClick}
+          >
+            Signin With Google
+          </button>
+        </div>
       )}
     </>
   );
